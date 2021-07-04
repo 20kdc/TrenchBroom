@@ -21,7 +21,9 @@
 #include "Assets/Texture.h"
 
 #include <vecmath/vec.h>
+#include <vecmath/vec_io.h>
 
+#include <ostream>
 #include <string>
 
 namespace TrenchBroom {
@@ -76,6 +78,19 @@ namespace TrenchBroom {
 
         bool operator!=(const BrushFaceAttributes& lhs, const BrushFaceAttributes& rhs) {
             return !(lhs == rhs);
+        }
+
+        std::ostream& operator<<(std::ostream& str, const BrushFaceAttributes& attrs) {
+            str << "BrushFaceAttributes{"
+                << "textureName: " << attrs.m_textureName << ", "
+                << "offset: " << attrs.m_offset << ", "
+                << "scale: " << attrs.m_scale << ", "
+                << "rotation: " << attrs.m_rotation << ", "
+                << "surfaceContents: " << attrs.m_surfaceContents << ", "
+                << "surfaceFlags: " << attrs.m_surfaceFlags << ", "
+                << "surfaceValue: " << attrs.m_surfaceValue << ", "
+                << "color: " << attrs.m_color << "}";
+            return str;
         }
 
         void swap(BrushFaceAttributes& lhs, BrushFaceAttributes& rhs) {
