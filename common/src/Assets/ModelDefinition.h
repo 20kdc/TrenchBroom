@@ -89,7 +89,7 @@ namespace TrenchBroom {
              *
              * @throws EL::Exception if the expression could not be evaluated
              */
-            vm::vec3 scale(const EL::VariableStore& variableStore, const std::optional<EL::Expression>& globalScaleExpression) const;
+            vm::vec3 scale(const EL::VariableStore& variableStore, const std::optional<EL::Expression>& defaultScaleExpression) const;
         };
     }
 }

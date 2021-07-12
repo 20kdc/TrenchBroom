@@ -205,7 +205,7 @@ namespace TrenchBroom {
             return scaleValue(value);
         }
 
-        vm::vec3 ModelDefinition::scale(const EL::VariableStore& variableStore, const std::optional<EL::Expression>& globalScaleExpression) const {
+        vm::vec3 ModelDefinition::scale(const EL::VariableStore& variableStore, const std::optional<EL::Expression>& defaultScaleExpression) const {
             constexpr auto defaultScale = vm::vec3{1, 1, 1};
 
             const auto context = EL::EvaluationContext{variableStore};
@@ -227,8 +227,8 @@ namespace TrenchBroom {
                     break;
             }
 
-            if (globalScaleExpression) {
-                if (const auto globalScaleValue = globalScaleExpression->evaluate(context); value != EL::Value::Undefined) {
+            if (defaultScaleExpression) {
+                if (const auto globalScaleValue = defaultScaleExpression->evaluate(context); value != EL::Value::Undefined) {
                     return convertToScale(globalScaleValue).value_or(defaultScale);
                 }
             }

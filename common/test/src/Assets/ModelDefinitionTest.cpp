@@ -124,9 +124,9 @@ namespace TrenchBroom {
                 {"modelscale_vec", EL::Value{"5, 6, 7"}},
             }};
 
-            const auto globalScaleExpression = globalScaleExpressionStr ? std::optional<EL::Expression>{IO::ELParser::parseStrict(*globalScaleExpressionStr)} : std::nullopt;
+            const auto defaultScaleExpression = globalScaleExpressionStr ? std::optional<EL::Expression>{IO::ELParser::parseStrict(*globalScaleExpressionStr)} : std::nullopt;
 
-            CHECK(modelDefinition.scale(variables, globalScaleExpression) == expectedScale);
+            CHECK(modelDefinition.scale(variables, defaultScaleExpression) == expectedScale);
         }
     }
 }
