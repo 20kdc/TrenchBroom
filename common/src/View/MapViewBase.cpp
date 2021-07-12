@@ -1145,7 +1145,7 @@ namespace TrenchBroom {
 
                 std::vector<Assets::EntityDefinition*> filteredDefinitions;
                 for (auto* definition : definitions) {
-                    if (!kdl::cs::str_is_equal(definition->name(), Model::PropertyValues::WorldspawnClassname)) {
+                    if (!kdl::cs::str_is_equal(definition->name(), Model::EntityPropertyValues::WorldspawnClassname)) {
                         filteredDefinitions.push_back(definition);
                     }
                 }
